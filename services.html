@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Indian Electricity Board</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0077b6;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            background-color: #0077b6;
+            color: #fff;
+        }
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 40px;
+        }
+        .service-card {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 30px;
+            text-align: center;
+            width: 300px;
+            margin: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        .service-card i {
+            font-size: 40px;
+            color: #0077b6;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .service-card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .service-card button {
+            background-color: #0077b6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .service-card button:hover {
+            background-color: #005a8e;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Services</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home Page</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="services-container">
+        <div class="service-card">
+            <i class="fas fa-user"></i>
+            <h3>Admin Login</h3>
+            <p>Access the admin dashboard to manage the electricity board's operations.</p>
+            <button onclick="window.location.href='admin/admin_login.html'">Admin Login</button>
+        </div>
+
+        <div class="service-card">
+            <i class="fas fa-plug"></i>
+            <h3>New Connection</h3>
+            <p>Apply for a new electricity connection.</p>
+            <button onclick="window.location.href='new_connection.html'">Apply for New Connection</button>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-sign-in-alt"></i>
+            <h3>Customer Login</h3>
+            <p>Log in to your customer account to view your electricity bill and make payments.</p>
+            <button onclick="window.location.href='customer/customer_login.html'">Customer Login</button>
+        </div>
+        <div class="service-card">
+            <i class="fas fa-money-bill-alt"></i>
+            <h3>Bill Payment</h3>
+            <p>Pay your electricity bill securely through our online payment system.</p>
+            <button onclick="window.location.href='customer/bill_payment.html'">Bill Payment</button>
+        </div>
+    </div>
+</body>
+</html>

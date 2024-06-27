@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Connection - Indian Electricity Board</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0077b6;
+            margin-bottom: 30px;
+        }
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+        label {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .radio-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .radio-group label {
+            margin-right: 20px;
+        }
+        button {
+            background-color: #0077b6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            grid-column: 1 / -1;
+            justify-self: center;
+        }
+        button:hover {
+            background-color: #005a8e;
+        }
+        #status {
+            text-align: center;
+            font-weight: 500;
+            color: #0077b6;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>New Connection</h1>
+        <form id="new-connection-form" action="new_connection.php" method="POST">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div>
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" required>
+            </div>
+            <div>
+                <label for="area">Area:</label>
+                <input type="text" id="area" name="area" required>
+            </div>
+            <div class="radio-group">
+                <label for="connection_type">Connection Type:</label>
+                <input type="radio" id="domestic" name="connection_type" value="domestic" required>
+                <label for="domestic">Domestic</label>
+                <input type="radio" id="commercial" name="connection_type" value="commercial" required>
+                <label for="commercial">Commercial</label>
+            </div>
+            <button type="submit">Apply for New Connection</button>
+        </form>
+        <div id="status"></div>
+
+        <script>
+            document.getElementById('new-connection-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                fetch('new_connection.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('status').textContent = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('status').textContent = 'An error occurred. Please try again later.';
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
